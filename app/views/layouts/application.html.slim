@@ -83,14 +83,8 @@ html
             li
               a.text-uppercase CBallNumbers
             - if current_user
-              li.dropdown
-                a.text-uppercase.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
-                  |
-                  = "Logged In"
-                  span.caret
-                ul.dropdown-menu
-                  li
-                    a#sign-out Log Out
+              li
+                a#sign-out Log Out
             - else
               li
                 a.text-uppercase href="/users/sign_in" Login

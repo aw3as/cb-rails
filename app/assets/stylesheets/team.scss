@@ -1,0 +1,32 @@
+#team-container {
+	padding: 0px 40px;
+
+	h1 {
+		font-weight: 300;
+		text-align: center;
+	}
+
+	.box {
+
+		> h3 {
+			margin-top: 0px;
+			font-weight: 300;
+			text-align: center;
+		}
+
+		.stat {
+			h2 {
+				margin-top: 8px;
+				margin-bottom: 0px;
+			}
+
+			h2,p {
+				font-weight: 300
+			}
+
+			p {
+				font-size: 11px;
+			}
+		}
+	}
+}

@@ -1,0 +1,129 @@
+= content_for :title, "#{@team.school}"
+#team-container
+  h1 = @team.school
+  .col-sm-6
+    .box
+      h3 Team
+      .stat.col-sm-3.text-center
+        h2 = @team.conference.name
+        p Conference
+      .stat.col-sm-6.text-center
+        h2 = [@team.coach.first_name, @team.coach.last_name].join(' ')
+        p Coach
+      .stat.col-sm-3.text-center
+        h2 = @team.players.size
+        p Players
+      .stat.col-sm-3.col-sm-offset-3.text-center
+        h2 = @team.team_record.wins_total
+        p Wins
+      .stat.col-sm-3.text-center
+        h2 = @team.team_record.losses_total
+        p Losses
+  .col-sm-6
+    .box
+      h3 Advanced Team Stats
+      .stat.col-sm-3.text-center
+        h2 = @team.advanced_team_stat.em
+        p Adjusted Efficiency Margin
+      .stat.col-sm-3.text-center
+        h2 = @team.advanced_team_stat.o
+        p Adjusted Offensive Efficiency
+      .stat.col-sm-3.text-center
+        h2 = @team.advanced_team_stat.d
+        p Adjusted Defensive Margin
+      .stat.col-sm-3.text-center
+        h2 = @team.advanced_team_stat.t
+        p Adjusted Tempo
+      .stat.col-sm-3.text-center
+        h2 = @team.advanced_team_stat.luck
+        p Luck
+  .col-sm-6
+    .box
+      h3 Total Team Stats
+      .stat.col-sm-12.text-center
+        h2 = number_with_delimiter(@team.total_team_stat.pts)
+        p Total Points
+      .stat.col-sm-3.text-center
+        h2 = number_with_delimiter(@team.total_team_stat.ast)
+        p Assists
+      .stat.col-sm-3.text-center
+        h2 = number_with_delimiter(@team.total_team_stat.stl)
+        p Steals
+      .stat.col-sm-3.text-center
+        h2 = number_with_delimiter(@team.total_team_stat.orb)
+        p Offensive Rebounds
+      .stat.col-sm-3.text-center
+        h2 = number_with_delimiter(@team.total_team_stat.drb)
+        p Defensive Rebounds
+      .stat.col-sm-4.text-center
+        h2 = number_with_delimiter(@team.total_team_stat.fg)
+        p Field Goals
+      .stat.col-sm-4.text-center
+        h2 = number_with_delimiter(@team.total_team_stat.fga)
+        p Field Goals Attempted
+      .stat.col-sm-4.text-center
+        h2 = "#{(@team.total_team_stat.fgp * 100).round}%"
+        p Field Goals Percentage
+      .stat.col-sm-4.text-center
+        h2 = number_with_delimiter(@team.total_team_stat.tpt)
+        p Three Pointers
+      .stat.col-sm-4.text-center
+        h2 = number_with_delimiter(@team.total_team_stat.tpta)
+        p Three Pointers Attempted
+      .stat.col-sm-4.text-center
+        h2 = "#{(@team.total_team_stat.tptp * 100).round}%"
+        p Three Pointers Percentage
+      .stat.col-sm-4.text-center
+        h2 = number_with_delimiter(@team.total_team_stat.ft)
+        p Free Throws
+      .stat.col-sm-4.text-center
+        h2 = number_with_delimiter(@team.total_team_stat.fta)
+        p Free Throws Attempted
+      .stat.col-sm-4.text-center
+        h2 = "#{(@team.total_team_stat.ftp * 100).round}%"
+        p Free Throws Percentage
+  .col-sm-6
+    .box
+      h3 Per Game Team Stats
+      .stat.col-sm-12.text-center
+        h2 = number_with_delimiter(@team.pg_team_stat.pts)
+        p Total Points
+      .stat.col-sm-3.text-center
+        h2 = number_with_delimiter(@team.pg_team_stat.ast)
+        p Assists
+      .stat.col-sm-3.text-center
+        h2 = number_with_delimiter(@team.pg_team_stat.stl)
+        p Steals
+      .stat.col-sm-3.text-center
+        h2 = number_with_delimiter(@team.pg_team_stat.orb)
+        p Offensive Rebounds
+      .stat.col-sm-3.text-center
+        h2 = number_with_delimiter(@team.pg_team_stat.drb)
+        p Defensive Rebounds
+      .stat.col-sm-4.text-center
+        h2 = number_with_delimiter(@team.pg_team_stat.fg)
+        p Field Goals
+      .stat.col-sm-4.text-center
+        h2 = number_with_delimiter(@team.pg_team_stat.fga)
+        p Field Goals Attempted
+      .stat.col-sm-4.text-center
+        h2 = "#{(@team.pg_team_stat.fgp * 100).round}%"
+        p Field Goals Percentage
+      .stat.col-sm-4.text-center
+        h2 = number_with_delimiter(@team.pg_team_stat.tpt)
+        p Three Pointers
+      .stat.col-sm-4.text-center
+        h2 = number_with_delimiter(@team.pg_team_stat.tpta)
+        p Three Pointers Attempted
+      .stat.col-sm-4.text-center
+        h2 = "#{(@team.pg_team_stat.tptp * 100).round}%"
+        p Three Pointers Percentage
+      .stat.col-sm-4.text-center
+        h2 = number_with_delimiter(@team.pg_team_stat.ft)
+        p Free Throws
+      .stat.col-sm-4.text-center
+        h2 = number_with_delimiter(@team.pg_team_stat.fta)
+        p Free Throws Attempted
+      .stat.col-sm-4.text-center
+        h2 = "#{(@team.pg_team_stat.ftp * 100).round}%"
+        p Free Throws Percentage

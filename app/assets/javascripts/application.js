@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require nprogress
+//= require nprogress-ajax
+//= require bootstrap-sprockets
+//= require teams
+//= require team
+//= require players
+//= require player

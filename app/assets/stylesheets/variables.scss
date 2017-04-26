@@ -1,0 +1,38 @@
+// colors
+$primary: #008cea;
+$accent: #008cea;
+$red: #870008;
+$dark: #833911;
+$white: #F5F5F5;
+$gray: #EEEEEE;
+$blue: #0D4F8B;
+
+// border
+$light-border: 1px solid $gray;
+$dark-border: 1px solid $dark;
+$card-border: 1px solid #d4d4d4;
+
+// checkbox
+$font-family-icon: 'Glyphicons Halflings';
+$check-icon: "\e013";
+
+// layout
+$sidebar-width: 200px;
+$chat-row-height: 58px;
+$chat-listing-width: 375px;
+$navbar-height: 60px;
+$logo-padding: 5px;
+$campaign-width: 900px;
+$listing-width: 210px;
+$listing-height: 240px;
+
+// nprogress overrides
+$nprogress-color: $dark;
+
+// bootstrap overrides
+$btn-primary-bg: $primary;
+$btn-danger-bg: #EEF0F4;
+$btn-warning-bg: $red;
+$btn-info-bg: #3b5998;
+$btn-success-bg: rgba(0, 0, 0, 0.7);
+$table-bg-hover: #e5e5e5;

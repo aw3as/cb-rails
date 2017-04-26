@@ -8,7 +8,8 @@ $(document).on('ready', function() {
 
 	$('.glyphicon-education').parents('.nav-row').addClass('active');
 
-	var playersContainer = $('#players-container');
+	var playersContainer = $('#players-container'),
+		addModal = $('#add-modal');
 
 	function loadPlayers(players) {
 		playersContainer.find('.col-sm-3:not(.hidden)').remove();
@@ -33,6 +34,17 @@ $(document).on('ready', function() {
 		}
 	});
 
+	playersContainer.find('#search').click(function() {
+		$.ajax('players.json', {
+			data: {
+				team: playersContainer.find('input').val()
+			},
+			success: function(response) {
+				loadPlayers(response);
+			}
+		});
+	});
+
 	playersContainer.find('input').keyup(function(e) {
 		if (e.keyCode !== 13) {
 			return;
@@ -43,6 +55,25 @@ $(document).on('ready', function() {
 			},
 			success: function(response) {
 				loadPlayers(response);
+			}
+		});
+	});
+
+	playersContainer.find('#add').click(function() {
+		addModal.modal('show');
+	});
+
+	addModal.find('.btn-primary').click(function() {
+		$.ajax('players.json', {
+			method: 'POST',
+			data: addModal.find('form').serialize(),
+			complete: function(response) {
+				addModal.modal('hide');
+				$.ajax('players.json', {
+					success: function(response) {
+						loadPlayers(response);
+					}
+				});
 			}
 		});
 	});

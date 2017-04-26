@@ -36,6 +36,10 @@ body > .container-fluid {
 	padding-right: 0px;
 }
 
+h1 {
+	margin-bottom: 20px;
+}
+
 .box {
 	background-color: white;
 	padding: 15px 20px;
@@ -228,5 +232,11 @@ aside {
 		.col-wrapper a:hover {
 			color: $dark;
 		}
+	}
+}
+
+#add-modal {
+	input,select {
+		color: black;
 	}
 }

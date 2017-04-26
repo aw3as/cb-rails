@@ -31,6 +31,42 @@ html
     = csrf_meta_tags
 
   body
+    #add-modal.modal.fade role="dialog" tabindex="-1"
+      .modal-dialog role="document"
+        .modal-content
+          .modal-header.text-center
+            button.close aria-label="Close" data-dismiss="modal" type="button"
+              span aria-hidden="true"  &times;
+            h2.modal-title Add Player
+          .modal-body.text-center.container-fluid
+            form.form.text-left
+              .form-group.col-sm-4
+                label First Name
+                input.form-control name="first_name"
+              .form-group.col-sm-4
+                label Last Name
+                input.form-control name="last_name"
+              .form-group.col-sm-4
+                label Team
+                select.form-control name="team_id"
+                  - Team.find_by_sql("SELECT * FROM teams;").each do |team|
+                    option value="#{team.id}" = team.school
+              .form-group.col-sm-6
+                label Year
+                input.form-control name="year"
+              .form-group.col-sm-6
+                label Position
+                input.form-control name="position"
+              .form-group.col-sm-6
+                label Height
+                input.form-control name="height" type="number"
+              .form-group.col-sm-6
+                label Weight
+                input.form-control name="weight" type="number"
+          .modal-footer
+            button#cancel.btn.btn-warning.pull-left data-dismiss="modal" Cancel
+            button#delete.btn.btn-danger.pull-left.hidden Delete
+            button.btn.btn-primary Save
     .container-fluid
       nav.navbar.navbar-inverse
         /! Brand and toggle get grouped for better mobile display

@@ -1,42 +1,73 @@
 = content_for :title, "#{@player.first_name} #{@player.last_name}"
-#player-container
-  h1 = "#{@player.first_name} #{@player.last_name}"
-  / .col-sm-6
-  /   .box
-  /     h3 Player
-  /     .stat.col-sm-3.text-center
-  /       h2 = player.conference.name
-  /       p Conference
-  /     .stat.col-sm-6.text-center
-  /       h2 = [player.coach.first_name, player.coach.last_name].join(' ')
-  /       p Coach
-  /     .stat.col-sm-3.text-center
-  /       h2 = player.players.size
-  /       p Players
-  /     .stat.col-sm-3.col-sm-offset-3.text-center
-  /       h2 = player.team_record.wins_total
-  /       p Wins
-  /     .stat.col-sm-3.text-center
-  /       h2 = player.team_record.losses_total
-  /       p Losses
-  / .col-sm-6
-  /   .box
-  /     h3 Advanced Team Stats
-  /     .stat.col-sm-3.text-center
-  /       h2 = @player.advanced_player_stat.em
-  /       p Adjusted Efficiency Margin
-  /     .stat.col-sm-3.text-center
-  /       h2 = @player.advanced_player_stat.o
-  /       p Adjusted Offensive Efficiency
-  /     .stat.col-sm-3.text-center
-  /       h2 = @player.advanced_player_stat.d
-  /       p Adjusted Defensive Margin
-  /     .stat.col-sm-3.text-center
-  /       h2 = @player.advanced_player_stat.t
-  /       p Adjusted Tempo
-  /     .stat.col-sm-3.text-center
-  /       h2 = @player.advanced_player_stat.luck
-  /       p Luck
+#player-container data-player="#{@player.id}"
+  h1
+    | 
+    = "#{@player.first_name} #{@player.last_name} "
+    span.glyphicon.glyphicon-pencil
+  .col-sm-6
+    .box
+      h3 Player
+      .stat.col-sm-3.text-center
+        h2 = @player.player_description.year
+        p Year
+      .stat.col-sm-3.text-center
+        h2 = @player.player_description.position
+        p Position
+      .stat.col-sm-3.text-center
+        h2 = @player.player_description.height
+        p Height (inches)
+      .stat.col-sm-3.text-center
+        h2 = @player.player_description.weight
+        p Weight (lbs)
+      .stat.col-sm-4.col-sm-offset-4.text-center
+        h2 = @player.team.school
+        p Team
+  - if @player.advanced_player_stat
+    .col-sm-6
+      .box
+        h3 Advanced Player Stats
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.usg
+          p Usage Percentage
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.ortg
+          p Offensive Rating
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.drtg
+          p Defensive Rating
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.ts
+          p True Shooting Percentage
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.efg
+          p Effective Field Goal Percentage
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.ft
+          p Free Throw Rate
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.tfg
+          p Three Point Tendency
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.orb
+          p Offensive Rebound Percentage
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.drb
+          p Defensive Rebound Percentage
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.trb
+          p Total Rebound Percentage
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.ast
+          p Assists Percentage
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.stl
+          p Steals Percentage
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.blk
+          p Blocks Percentage
+        .stat.col-sm-3.text-center
+          h2 = @player.advanced_player_stat.turn
+          p Turnovers Percentage
   - if @player.total_player_stat
     .col-sm-6
       .box
@@ -90,10 +121,10 @@
         .stat.col-sm-12.text-center
           h2 = number_with_delimiter(@player.pg_player_stat.pts)
           p Total Points
-        .stat.col-sm-3.text-center
+        .stat.col-sm-6.text-center
           h2 = number_with_delimiter(@player.pg_player_stat.ast)
           p Assists
-        .stat.col-sm-3.text-center
+        .stat.col-sm-6.text-center
           h2 = number_with_delimiter(@player.pg_player_stat.stl)
           p Steals
         .stat.col-sm-4.text-center

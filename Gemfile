@@ -28,6 +28,9 @@ gem 'jquery-rails'
 # Use slim for templating
 gem 'slim-rails'
 
+# Use devise for user login
+gem 'devise'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 

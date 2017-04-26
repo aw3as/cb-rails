@@ -7,8 +7,9 @@
         input.form-control name="team" placeholder="search by team"
         span#search.input-group-addon
           span.glyphicon.glyphicon-search
-        span#add.input-group-addon
-          span.glyphicon.glyphicon-plus
+        - if current_user
+          span#add.input-group-addon
+            span.glyphicon.glyphicon-plus
   .col-sm-3.hidden
     .box
       h2

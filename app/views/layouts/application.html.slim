@@ -83,6 +83,11 @@ html
           ul.nav.navbar-nav.navbar-right
             li
               a.text-uppercase CBallNumbers
+            li
+              - if current_user
+                a.text-uppercase Logged In
+              - else
+                a.text-uppercase href="/users/sign_in" Login
       aside
         .container-fluid.site-nav-links
           .row.nav-row
@@ -97,5 +102,5 @@ html
                 a href="/players"
                   i.glyphicon.glyphicon-education
                   | Players
-      section
+      section.text-center
         = yield

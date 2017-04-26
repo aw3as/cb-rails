@@ -1,9 +1,12 @@
 = content_for :title, "#{@player.first_name} #{@player.last_name}"
 #player-container data-player="#{@player.id}"
-  h1
-    | 
-    = "#{@player.first_name} #{@player.last_name} "
-    span.glyphicon.glyphicon-pencil
+  - if current_user
+    h1
+      | 
+      = "#{@player.first_name} #{@player.last_name} "
+      span.glyphicon.glyphicon-pencil
+  - else
+    h1 = "#{@player.first_name} #{@player.last_name}"
   .col-sm-6
     .box
       h3 Player

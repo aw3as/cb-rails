@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+  before_action :authenticate_user!, :only => [ :create, :update, :destroy ]
 
   # GET /, GET /players
   def index

@@ -189,6 +189,12 @@ aside {
 	background-color: $dark;
 }
 
+section {
+	> h2 {
+		font-weight: 300;
+	}
+}
+
 .site-nav-links {
 	list-style-type: none;
 

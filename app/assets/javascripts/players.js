@@ -6,7 +6,7 @@ $(document).on('ready', function() {
 		return;
 	}
 
-	$('.glyphicon-education').parents('.nav-row').addClass('active');
+	$('#players').parents('.nav-row').addClass('active');
 
 	var playersContainer = $('#players-container'),
 		addModal = $('#add-modal');

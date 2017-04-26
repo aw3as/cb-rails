@@ -82,10 +82,17 @@ html
           ul.nav.navbar-nav.navbar-right
             li
               a.text-uppercase CBallNumbers
-            li
-              - if current_user
-                a.text-uppercase Logged In
-              - else
+            - if current_user
+              li.dropdown
+                a.text-uppercase.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+                  |
+                  = "Logged In"
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a#sign-out Log Out
+            - else
+              li
                 a.text-uppercase href="/users/sign_in" Login
       aside
         .container-fluid.site-nav-links
@@ -93,13 +100,13 @@ html
             .col-xs-12
               .col-wrapper
                 a href="/teams"
-                  i.glyphicon.glyphicon-wrench
+                  i.glyphicon#teams
                   | Teams
           .row.nav-row
             .col-xs-12
               .col-wrapper
                 a href="/players"
-                  i.glyphicon.glyphicon-education
+                  i.glyphicon#players
                   | Players
       section.text-center
         = yield

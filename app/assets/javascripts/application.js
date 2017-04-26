@@ -12,10 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require nprogress
-//= require nprogress-ajax
 //= require bootstrap-sprockets
 //= require teams
 //= require team
 //= require players
 //= require player
+
+$(document).on('ready', function() {
+	"use strict";
+
+	$('#sign-out, #sign-out-row').click(function() {
+		$.ajax('/users/sign_out', {
+			method: 'DELETE',
+			success: function(response) {
+				location.reload();
+			}
+		});
+	});
+});

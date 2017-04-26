@@ -6,7 +6,7 @@ $(document).on('ready', function() {
 		return;
 	}
 
-	$('.glyphicon-wrench').parents('.nav-row').addClass('active');
+	$('#teams').parents('.nav-row').addClass('active');
 
 	var team = $('#team-container');
 });

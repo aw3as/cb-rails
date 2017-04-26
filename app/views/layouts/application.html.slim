@@ -77,11 +77,13 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-        h4.navbar-text.hidden-sm.hidden-xs = content_for(:title)
+        h4.navbar-text.hidden-sm.hidden-xs CBallNumbers
         #account.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
-              a.text-uppercase CBallNumbers
+              a.text-uppercase href="/teams" Teams
+            li
+              a.text-uppercase href="/players" Players
             - if current_user
               li
                 a.text-uppercase#sign-out Log Out
@@ -89,18 +91,5 @@ html
               li
                 a.text-uppercase href="/users/sign_in" Login
       aside
-        .container-fluid.site-nav-links
-          .row.nav-row
-            .col-xs-12
-              .col-wrapper
-                a href="/teams"
-                  i.glyphicon#teams
-                  | Teams
-          .row.nav-row
-            .col-xs-12
-              .col-wrapper
-                a href="/players"
-                  i.glyphicon#players
-                  | Players
       section.text-center
         = yield

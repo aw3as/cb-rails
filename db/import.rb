@@ -86,7 +86,7 @@ File.open("db/csv/PlayerStatsPerGame.csv", "r").read.split("\n").each do |row|
 
   data = row.split(',')
   team = Team.find_by(:school => data.first)
-  player = team.players.find_by(:first_name => data[2].split(' ').first, :last_name => data[2].split(' ').last)
+  player = Player.find_by(:first_name => data[2].split(' ').first, :last_name => data[2].split(' ').last)
   unless player
     puts row
     puts 'no player'
@@ -116,7 +116,7 @@ File.open("db/csv/PlayerStatsTotal.csv", "r").read.split("\n").each do |row|
 
   data = row.split(',')
   team = Team.find_by(:school => data.first)
-  player = team.players.find_by(:first_name => data[2].split(' ').first, :last_name => data[2].split(' ').last)
+  player = Player.find_by(:first_name => data[2].split(' ').first, :last_name => data[2].split(' ').last)
   unless player
     puts row
     puts 'no player'
@@ -247,7 +247,7 @@ File.open("db/csv/updated_adv_stat_2.csv", "r").read.split("\n").each do |row|
     puts 'no team'
     next
   end
-  player = team.players.find_by(:first_name => data[2], :last_name => data[3])
+  player = Player.find_by(:first_name => data[2], :last_name => data[3])
   unless player
     puts row
     puts 'no player'

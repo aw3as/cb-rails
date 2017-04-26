@@ -20,7 +20,7 @@ class PlayersController < ApplicationController
   def create
     ActiveRecord::Base.connection.execute("INSERT INTO players (team_id, first_name, last_name, created_at, updated_at) VALUES (#{params[:team_id]}, '#{params[:first_name]}', '#{params[:last_name]}', '#{Time.now.strftime '%Y-%m-%d %H:%M:%S'}', '#{Time.now.strftime '%Y-%m-%d %H:%M:%S'}')")
     player = Player.find_by_sql("SELECT * FROM players ORDER BY id DESC LIMIT 1;").first
-    ActiveRecord::Base.connection.execute("INSERT INTO player_descriptions (player_id, height, weight, position, year, created_at, updated_at) VALUES (#{player.id}, #{params[:height]}, #{params[:weight]}, '#{params[:position]}', '#{params[:position]}', '#{Time.now.strftime '%Y-%m-%d %H:%M:%S'}', '#{Time.now.strftime '%Y-%m-%d %H:%M:%S'}')")
+    ActiveRecord::Base.connection.execute("INSERT INTO player_descriptions (player_id, height, weight, position, year, created_at, updated_at) VALUES (#{player.id}, #{params[:height]}, #{params[:weight]}, '#{params[:position]}', '#{params[:year]}', '#{Time.now.strftime '%Y-%m-%d %H:%M:%S'}', '#{Time.now.strftime '%Y-%m-%d %H:%M:%S'}')")
     head :ok
   end
 

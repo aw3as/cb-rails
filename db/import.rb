@@ -21,7 +21,7 @@ File.open("db/csv/Conferences.csv", "r").read.split("\n").each do |row|
   end
   team = Team.find_by(:school => data.first)
   unless team
-    Team.create(:conference => conference, :school => data.first)
+    Team.create(:conference_id => conference.id, :school => data.first)
   end
 end
 
@@ -41,7 +41,7 @@ File.open("db/csv/Coaches.csv", "r").read.split("\n").each do |row|
     next
   end
   Coach.create(
-    :team => team,
+    :team_id => team.id,
     :first_name => data[1],
     :last_name => data[2]
   )
@@ -63,12 +63,12 @@ File.open("db/csv/PlayerDescriptions.csv", "r").read.split("\n").each do |row|
     next
   end
   player = Player.create(
-    :team => team,
+    :team_id => team.id,
     :first_name => data[1].split(' ').first,
     :last_name => data[1].split(' ').last,
   )
   PlayerDescription.create(
-    :player => player,
+    :player_id => player.id,
     :year => data[3],
     :position => data[4],
     :height => data[5],
@@ -93,7 +93,7 @@ File.open("db/csv/PlayerStatsPerGame.csv", "r").read.split("\n").each do |row|
     next
   end
   PGPlayerStat.create(
-    :player => player,
+    :player_id => player.id,
     :fg => data[5],
     :fga => data[6],
     :tpt => data[11],
@@ -123,7 +123,7 @@ File.open("db/csv/PlayerStatsTotal.csv", "r").read.split("\n").each do |row|
     next
   end
   TotalPlayerStat.create(
-    :player => player,
+    :player_id => player.id,
     :fg => data[5],
     :fga => data[6],
     :tpt => data[11],
@@ -154,7 +154,7 @@ File.open("db/csv/team_adv_stat.csv", "r").read.split("\n").each do |row|
     next
   end
   AdvancedTeamStat.create(
-    :team => team,
+    :team_id => team.id,
     :em => data[5],
     :o => data[6],
     :d => data[8],
@@ -162,7 +162,7 @@ File.open("db/csv/team_adv_stat.csv", "r").read.split("\n").each do |row|
     :luck => data[12]
   )
   TeamRecord.create(
-    :team => team,
+    :team_id => team.id,
     :wins_total => data[3],
     :losses_total => data[4]
   )
@@ -184,7 +184,7 @@ File.open("db/csv/teams_per_game.csv", "r").read.split("\n").each do |row|
     next
   end
   PGTeamStat.create(
-    :team => team,
+    :team_id => team.id,
     :fg => data[6],
     :fga => data[7],
     :tpt => data[10],
@@ -216,7 +216,7 @@ File.open("db/csv/teams_total.csv", "r").read.split("\n").each do |row|
     next
   end
   TotalTeamStat.create(
-    :team => team,
+    :team_id => team.id,
     :fg => data[3],
     :fga => data[4],
     :tpt => data[6],
@@ -254,7 +254,7 @@ File.open("db/csv/updated_adv_stat_2.csv", "r").read.split("\n").each do |row|
     next
   end
   AdvancedPlayerStat.create(
-    :player => player,
+    :player_id => player.id,
     :usg => data[7],
     :ortg => data[8],
     :drtg => data[9],

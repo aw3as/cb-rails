@@ -63,6 +63,10 @@ $(document).on('ready', function() {
 		addModal.modal('show');
 	});
 
+	playersContainer.find('#download').click(function() {
+		window.location = window.location + '.json';
+	});
+
 	addModal.find('.btn-primary').click(function() {
 		$.ajax('players.json', {
 			method: 'POST',
